@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+<meta title="project3">
+<script src="js/angular-1.6.4.min.js"></script>
+<script src="js/angular-animate.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<html>
+<body ng-app="ngAnimate">
+    <div ng-include="'templates/include.htm'"></div>
+    <h1>Hide the DIV: <input type="checkbox" ng-model="myCheck"></h1>
+    <div class="blue_bg" ng-hide="myCheck"></div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function($scope, $http) {
+        $http.get("customers.php").then(function (response) {
+            $scope.names = response.data.records;
+        });
+    });
+</script>
+</html>
